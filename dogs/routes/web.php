@@ -13,15 +13,12 @@
 |
 */
 
-// $app->withFacades();
-
-// $app->withEloquent();
-
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {
+
     $router->get('dogs', ['uses' => 'DogsController@showAllDogs']);
 
     $router->get('dogs/{id}', ['uses' => 'DogsController@showOneDog']);
